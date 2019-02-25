@@ -1,34 +1,52 @@
 
 
 # 1.21 Arcade Edition
+-------
 
 ## Rationale
 1.21 Arcade Edition uses OpenNode. Set up a free account here 
 https://opennode.co/join/f774f2a0-1377-45e2-b719-6b821f24900d
 
+## Purpose
+Ever since I got into Bitcoin I wanted my pinball machine to accept Bitcoin payments. Just accepting Bitcoin from friends or to show as an example how to pay. But accepting bitcoin for a pinball game isn't working for the arcade. They need something cheap fast and simple to implement. With lightning and Opennode now you can set this up pretty simple and cheap. 
+
+The purpose of this guide is step by step tutorial so everyone can make this module and implement it in an arcade machine. If it accepts coins it can also accept Lightning.
+
 ## Hardware needed
 
 * ESP32 (without built in OLED!)
 * MH-ET-LIVE epaper module 
-* NPN Transistor
-* Electronic Sweet Machine (Global Gizmos Candy Dispenser)
+* Relay
 * Wires and stuff
 
-## Notes
+## Optional Hardware
+Because I'm putting my module in a Williams Jackbot pinball machine I will also be using the following:
+* small breadboard
+* 12v to 5v buck converter
+* molex 15 pin 0.156" female connector
+* more wire with dupont connectors
 
-The project is written for the Arduino IDE, appropriate libraries in the includes will have to be downloaded separately.
+## Setting up
+...add instructions how to setup the ESP32, Epaper and relay for testing...
 
-I used a standard ESP32 board, recognised in the Arduino IDE as a "LOLIN D32", although the code could be fiddled to support most ESP32s (as long as they don't have an OLED screen!).
+## Installing Arduino IDE
+Now sorry for everyone who knows how to upload code to boards. 80% of this step is not needed for you.
 
-Epaper to ESP32 SPI connection example:
-![SPI PINS image](https://i.imgur.com/AB4DInM.jpg)
+To program the ESP32 we need to install Arduino IDE. Once installed you need to add the ESP32 boards into the boardmanager.
+Go to File/Preferences and add this link to Additional Boards Manager URLs: 
+https://dl.espressif.com/dl/package_esp32_index.json
+Click ok and now go to Tools/Boards/Boards Manager. Search for and install ESP32 by Espressif Systems.
 
-1.21 sends an ON to GPIO PIN 17 for 2 secs, which can be adjusted in the code: 
+Now we need to install some libraries. Go to Tools/Manage Libraries (Ctrl+Shift+I) and install:
+* ArduinoJson by Benoit Blachon v5.13.4 (don't install the beta version!!)
+* GxEPD2 by Jean-Marc Zingg
+* Adafruit GFX Library by Adafruit
+* QRCode by Richard Moore
 
-* GPIO PIN 17 is connected to the BASE of an NPN transistor
-* The COLLECTOR of the NPN is connected to the same 3v PIN as the epaper
-* The EMITTER of the NPN is connected to the live wire of the candy machine motor
-* The ground of the motor is connected the GND PIN
+## The code
+With all the libraries needed installed we can go to the code for the ESP32.
+
+
 
 ## Limitations 
 
