@@ -146,7 +146,7 @@ fetchpayment(amount);
   }
   else{
   digitalWrite(27, HIGH);
-  delay(4000);
+  delay(250);
   digitalWrite(27, LOW);
   delay(500);
   counta = 30;
