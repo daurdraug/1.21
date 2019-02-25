@@ -30,8 +30,6 @@ Because I'm putting my module in a Williams Jackbot pinball machine I will also 
 ...add instructions how to setup the ESP32, Epaper and relay for testing...
 
 ## Installing Arduino IDE
-Now sorry for everyone who knows how to upload code to boards. 80% of this step is not needed for you.
-
 To program the ESP32 we need to install Arduino IDE. Once installed you need to add the ESP32 boards into the boardmanager.
 Go to File/Preferences and add this link to Additional Boards Manager URLs: 
 https://dl.espressif.com/dl/package_esp32_index.json
